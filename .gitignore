@@ -5,3 +5,9 @@ riderModule.iml
 /_ReSharper.Caches/
 .idea/
 OBSControl.sln.DotSettings.user
+/OBSControl/dist
+/.vs/
+/packages/
+/dist/
+.pre-commit-config.yaml
+.selid-hooks/check-identity

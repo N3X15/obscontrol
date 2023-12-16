@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <Deterministic>true</Deterministic>
+    <LangVersion>latest</LangVersion>
+    <OutputPath>dist</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp"/>
+    <Reference Include="System"/>
+    <Reference Include="System.Core"/>
+    <Reference Include="0Harmony">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\MelonLoader\net35\0Harmony.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\Assembly-CSharp.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="BTKUILib">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\Mods\BTKUILib.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="MelonLoader">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\MelonLoader\net35\MelonLoader.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>G:\SteamLibrary\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="ILRepack"/>
+    <PackageReference Include="obs-websocket-dotnet" Version="5.0.0.3"/>
+  </ItemGroup>
+</Project>

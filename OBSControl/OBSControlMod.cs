@@ -1,12 +1,12 @@
-﻿using System.Linq;
-using ABI_RC.Core.InteractionSystem;
+﻿using ABI_RC.Core.InteractionSystem;
 using BTKUILib;
 using BTKUILib.UIObjects;
 using MelonLoader;
+using System.Linq;
 
 [assembly: MelonInfo(typeof(OBSControl.OBSControlMod), "OBSControl", "1.0.0", "N3X15 + Animal", "https://github.com/N3X15/OBSControl")]
 [assembly: MelonGame("Alpha Blend Interactive", "ChilloutVR")]
-[assembly: MelonColor(255,95,158,160)] // Color.CadetBlue
+[assembly: MelonColor(255, 95, 158, 160)] // Color.CadetBlue
 [assembly: MelonOptionalDependencies("BTKUILib")] // not required, but qol to change settings
 
 namespace OBSControl
@@ -19,13 +19,11 @@ namespace OBSControl
         public override void OnInitializeMelon()
         {
             Logger.Logs = LoggerInstance;
-            /*MelonHandler.LoadFromFile("UserLibs/obs-websocket-dotnet.dll"); need to build for net48 cause melon moment*/
-
 
             if (!RegisteredMelons.Any(x => x.Info.Name.Equals("BTKUILib") && x.Info.SemanticVersion != null/* && x.Info.SemanticVersion.CompareTo(new SemVersion(0, 3)) >= 0*/))
             {
-                Logger.Error("BTKUILib was not detected or it outdated! BTKCompanion cannot function without it!");
-                Logger.Error("Please download an updated copy for BTKUILib!");
+                Logger.Error("BTKUILib was not detected or it is outdated! OBSControl cannot function without it!");
+                Logger.Error("Please download an updated copy of BTKUILib!");
                 return;
             }
             InitPrefs();
@@ -64,8 +62,12 @@ namespace OBSControl
 
         private void SetupUI()
         {
-            QuickMenuAPI.PrepareIcon("OBSControl", "OBSIcon", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.BTKIcon.png"));
-            QuickMenuAPI.PrepareIcon("OBSControl", "Settings", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.Settings.png"));
+            QuickMenuAPI.PrepareIcon("OBSControl", "OBS", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.obs.png"));
+            QuickMenuAPI.PrepareIcon("OBSControl", "Download", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.download.png"));
+            QuickMenuAPI.PrepareIcon("OBSControl", "Start", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.play.png"));
+            QuickMenuAPI.PrepareIcon("OBSControl", "Stop", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.stop.png"));
+            QuickMenuAPI.PrepareIcon("OBSControl", "Record", global::System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("OBSControl.Images.record.png"));
+
 
             var rootPage = new Page("OBSControl", "Main", true, "OBSIcon");
             rootPage.MenuTitle = "OBS Controls";
@@ -94,7 +96,7 @@ namespace OBSControl
                 if (client == null) return;
                 client.IsReplayBufferOn = false;
             };
-            var btnReplayBufferSave = catReplay.AddButton("Save Replay Buffer", "Save", "Save the replay buffer.");
+            var btnReplayBufferSave = catReplay.AddButton("Save Replay Buffer", "Download", "Save the replay buffer.");
             btnReplayBufferSave.OnPress += () =>
             {
                 if (client == null) return;

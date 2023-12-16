@@ -1,0 +1,25 @@
+csproj: OBSControl.csproj
+gameid: 661130
+type: mod
+options: {}
+system-refs:
+- Microsoft.CSharp
+- System
+- System.Core
+game-refs:
+- Assembly-CSharp
+- UnityEngine
+- UnityEngine.CoreModule
+mod-refs:
+- BTKUILib
+nuget-packages:
+  obs-websocket-dotnet: 5.0.0.3
+ilrepack:
+  assemblies:
+    - Websocket.Client
+    - obs-websocket-dotnet
+    - System.Reactive
+    - System.Runtime.CompilerServices.Unsafe
+    - System.Threading.Channels
+    - System.Threading.Tasks.Extensions
+    - System.ValueTuple
