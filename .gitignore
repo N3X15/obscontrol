@@ -11,3 +11,4 @@ OBSControl.sln.DotSettings.user
 /dist/
 .pre-commit-config.yaml
 .selid-hooks/check-identity
+"/.check-identity" 
